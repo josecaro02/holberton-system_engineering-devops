@@ -1,1 +1,1 @@
-#Project day 2 about SHELL in Holberton School
+# Folder with the solution of the projects of the day 3 "Shell permissions" in Holberton School
