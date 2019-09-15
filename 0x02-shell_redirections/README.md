@@ -1,0 +1,1 @@
+# In this folder I solved "Shell, I/O Redirection"
