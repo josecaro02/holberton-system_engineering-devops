@@ -1,2 +1,2 @@
 #!/bin/bash
-set PATH = "$PATH/$OLDPWD"
+export PATH = "$PATH:/action"
