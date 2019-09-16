@@ -1,0 +1,1 @@
+#Folder with the solution of the project "Shell, init files, variables and expansions" in week 1 day 0
