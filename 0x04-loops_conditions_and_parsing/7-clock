@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# Prints "Holberton School" 10 times in a while loop
+i=0
+while [ $i -le 12 ]; do
+      j=1
+      echo "Hour: $i"
+      while [ $j -le 59 ]; do
+      	    echo "$j"
+	    j=$((j + 1))
+	 done
+	 i=$((i + 1))
+done

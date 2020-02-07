@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Prints "Holberton School" with loop until
+i=0
+until [ $i -eq 10 ]; do
+     echo "Holberton School"
+     i=$((i + 1))
+done
