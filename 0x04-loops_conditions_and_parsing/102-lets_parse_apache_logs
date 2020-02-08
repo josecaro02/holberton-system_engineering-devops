@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Prints info about python logs
+awk -F' ' '{ print $1}' apache-access.log
