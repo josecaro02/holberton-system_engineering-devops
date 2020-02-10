@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+#Task 100
+sudo touch /var/run/holbertonscript.pid
+sudo chmod 777 /var/run/holbertonscript.pid
+echo "$$" > /var/run/holbertonscript.pid
+function function_term()
+{
+	echo "I hate the kill command"
+	sudo rm /var/run/holbertonscript.pid
+	exit 0
+}
+function function_quit()
+{
+     sudo rm /var/run/holbertonscript.pid
+    exit 0
+}
+trap "echo Y U no love me?!" SIGINT
+trap function_term SIGTERM
+trap funcion_quit SIGQUIT
+while :
+do
+      echo "To infinity and beyond"
+      sleep 2
+done
