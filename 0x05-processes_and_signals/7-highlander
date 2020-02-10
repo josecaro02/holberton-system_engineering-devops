@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+#Prints message when term signal is called
+trap "echo I am invencible!!!" SIGTERM
+while :
+do
+    echo "To infinity and beyond"
+    sleep 2
+done
