@@ -3,29 +3,29 @@
 #/etc/init.d/functions
 
 start(){
-	./manage_my_process &
-	sudo touch /var/run/my_process.pid
-	sudo chmod 777 /var/run/my_process.pid
-	echo "$$" > /var/run/my_process.pid
-	echo "manage_my_process started"
+    ./manage_my_process &
+    sudo touch /var/run/my_process.pid
+    sudo chmod 777 /var/run/my_process.pid
+    echo "$!" > /var/run/my_process.pid
+    echo "manage_my_process started"
 }
 
 stop(){
-	process=$(pgrep -f manage_my_process)
-	sudo kill -17 "$process"
-	echo "manage_my_process stopped"
-	sudo rm /var/run/my_process.pid
+    process=$(sudo cat /var/run/my_process.pid)
+    sudo kill -15 "$process"
+    echo "manage_my_process stopped"
+    sudo rm -rf /var/run/my_process.pid
 }
 
 restart(){
-	process=$(pgrep -f manage_my_process)
-	sudo kill -17 "$process"
-	sudo rm /var/run/my_process.pid
-	./manage_my_process &
-	sudo touch /var/run/my_process.pid
-	sudo chmod 777 /var/run/my_process.pid
-	echo "$$" > /var/run/my_process.pid
-	echo "manage_my_process restarted"
+    process=$(sudo cat /var/run/my_process.pid)
+    sudo kill -15 "$process"
+    sudo rm /var/run/my_process.pid
+    ./manage_my_process &
+    sudo touch /var/run/my_process.pid
+    sudo chmod 777 /var/run/my_process.pid
+    echo "$!" > /var/run/my_process.pid
+    echo "manage_my_process restarted"
 }
 
 case "$1" in
