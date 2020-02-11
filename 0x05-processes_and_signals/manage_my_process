@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+#manage my process file
+sudo touch /tmp/my_process
+sudo chmod 777 /tmp/my_process
+while :
+do
+      echo "I am alive!" >> /tmp/my_process
+      sleep 2
+done

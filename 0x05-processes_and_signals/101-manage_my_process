@@ -1,0 +1,48 @@
+#!/usr/bin/env bash
+#Bash script to manage process
+#/etc/init.d/functions
+
+start(){
+	./manage_my_process &
+	sudo touch /var/run/my_process.pid
+	sudo chmod 777 /var/run/my_process.pid
+	echo "$$" > /var/run/my_process.pid
+	echo "manage_my_process started"
+}
+
+stop(){
+	process=$(pgrep -f manage_my_process)
+	sudo kill -9 "$process"
+	echo "manage_my_process stopped"
+	sudo rm /var/run/my_process.pid
+}
+
+restart(){
+	process=$(pgrep -f manage_my_process)
+	sudo kill -9 "$process"
+	sudo rm /var/run/my_process.pid
+	./manage_my_process &
+	sudo touch /var/run/my_process.pid
+	sudo chmod 777 /var/run/my_process.pid
+	echo "$$" > /var/run/my_process.pid
+	echo "manage_my_process restarted"
+}
+
+case "$1" in
+     start)
+	start
+	;;
+
+     stop)
+	stop
+	;;
+
+     restart)
+	restart
+	;;
+
+     *)
+	echo "Usage: manage_my_process {start|stop|restart}"
+	exit 1
+	;;
+esac
