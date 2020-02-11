@@ -12,14 +12,14 @@ start(){
 
 stop(){
 	process=$(pgrep -f manage_my_process)
-	sudo kill -9 "$process"
+	sudo kill -17 "$process"
 	echo "manage_my_process stopped"
 	sudo rm /var/run/my_process.pid
 }
 
 restart(){
 	process=$(pgrep -f manage_my_process)
-	sudo kill -9 "$process"
+	sudo kill -17 "$process"
 	sudo rm /var/run/my_process.pid
 	./manage_my_process &
 	sudo touch /var/run/my_process.pid
