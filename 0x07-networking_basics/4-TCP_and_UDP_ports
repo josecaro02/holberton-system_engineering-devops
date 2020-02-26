@@ -1,2 +1,3 @@
 #!/usr/bin/env bash
+#Display listening ports, only listening sockets and shows PID
 netstat -l -p
