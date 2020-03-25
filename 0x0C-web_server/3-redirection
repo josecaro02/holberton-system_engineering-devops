@@ -3,7 +3,7 @@
 apt-get update -y
 apt-get install nginx -y
 echo "Holberton School" > /var/www/html/index.nginx-debian.html
-new_string="\tserver_name _; \n\n\t location = /redirect_me {\n
+new_string="\tserver_name _; \n\n\t location = /redirect_me/ {\n
 	   return 301 https://youtube.com;\n}\n"
 sed i "s/server_name _;/$new_string/" /etc/nginx/sites-available/default
 sudo systemctl reload nginx
