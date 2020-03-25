@@ -2,6 +2,6 @@
 # Install NGINX server and set message in landing page
 apt-get update -y
 apt-get install nginx -y
-echo 'Holberton School' > /var/www/html/index.nginx-debian.html
+echo "Holberton School" > /var/www/html/index.nginx-debian.html
 systemctl restart nginx.service
 service nginx start
