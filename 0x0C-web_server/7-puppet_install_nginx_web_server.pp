@@ -1,5 +1,4 @@
 # Create a server and configure it
-$new_string = "\tserver_name _;\n\n\t location /redirect_me {\n\treturn 301 youtube.com;\n}\n"
 
 exec { 'Update system':
   path     => ['/usr/bin', '/sbin', '/bin', '/usr/sbin'],
@@ -21,7 +20,7 @@ exec { 'Set text in home page':
 }
 exec { 'Redirect page':
   path     => ['/usr/bin', '/sbin', '/bin', '/usr/sbin'],
-  command  => 'sed -i "s/server_name _;/$new_string/" /etc/nginx/sites-available/default',
+  command  => 'sed -i "s/server_name _;/\tserver_name _;\n\n\t location \/redirect_me {\n\treturn 301 youtube.com;\n}\n/" /etc/nginx/sites-available/default',
   provider => 'shell',
 }
 
