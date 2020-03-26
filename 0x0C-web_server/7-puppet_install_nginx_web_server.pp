@@ -5,6 +5,7 @@ exec { 'Update system':
   path     => ['/usr/bin', '/sbin', '/bin', '/usr/sbin'],
   command  => 'apt-get update -y',
   provider => 'shell',
+  returns  => [100],
 }
 
 exec { 'Install nginx':
