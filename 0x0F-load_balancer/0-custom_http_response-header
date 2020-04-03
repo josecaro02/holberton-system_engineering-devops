@@ -8,7 +8,7 @@ sed -i "s/server_name _;/$new_string/" /etc/nginx/sites-available/default
 echo "Ceci n'est pas une page" > /usr/share/nginx/html/custom_404.html
 my_string="server_name _;\n\terror_page 404 \/custom_404.html;\nlocation = \/custom_404.html {\nroot \/usr\/share\/nginx\/html;\ninternal;\n}\n"
 sed -i "s/server_name _;/$my_string/" /etc/nginx/sites-available/default
-hs=`hostname`
+hs=$(hostname)
 new_string="http {\n\tadd_header X-Served-By "
 sudo sed -i "s/http {/$new_string$hs;\n/" /etc/nginx/nginx.conf
 sudo systemctl restart nginx
