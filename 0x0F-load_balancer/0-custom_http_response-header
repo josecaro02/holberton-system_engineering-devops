@@ -11,4 +11,4 @@ sed -i "s/server_name _;/$my_string/" /etc/nginx/sites-available/default
 hs=$(hostname)
 new_string="http {\n\tadd_header X-Served-By "
 sudo sed -i "s/http {/$new_string$hs;\n/" /etc/nginx/nginx.conf
-service nginx start
+sudo systemctl start nginx
