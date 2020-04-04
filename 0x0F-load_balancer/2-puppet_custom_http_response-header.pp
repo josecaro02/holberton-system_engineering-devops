@@ -16,7 +16,7 @@ exec { 'Install_nginx':
 }
 
 exec { 'Add_header':
-  require  => Eect['Redirect_page'],
+  require  => Exec['Install_nginx'],
   path     => ['/usr/bin', '/sbin', '/usr/sbin'],
   command  => 'sudo sed -i "s/http {/http {\n\tadd_header X-Served-By \$hostname;\n/" /etc/nginx/nginx.conf',
   provider => 'shell',
