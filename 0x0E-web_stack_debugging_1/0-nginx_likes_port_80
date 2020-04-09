@@ -6,4 +6,3 @@ bad_string_2="listen \[\:\:\]\:8080 default_server ipv6only=on"
 string_2="listen [::]:80 default_server ipv6only=on"
 sudo sed -i "s/$bad_string/$string_1/" /etc/nginx/sites-enabled/default
 sudo sed -i "s/$bad_string_2/$string_2/" /etc/nginx/sites-enabled/default
-service nginx restart
