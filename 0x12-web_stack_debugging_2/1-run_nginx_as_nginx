@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Set nginx user and listen in port 8080
+sed -i "s/#user www-data;/user nginx;/" /etc/nginx/nginx.cfg
+sed -i "s/80/8080/" /etc/nginx/sites-available/default
+service nginx restart
