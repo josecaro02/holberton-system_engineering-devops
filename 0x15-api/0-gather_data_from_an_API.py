@@ -2,6 +2,8 @@
 """ Script that uses a RESTAPI """
 import requests
 import sys
+
+
 if __name__ == "__main__":
     user_id = sys.argv[1]
     user_info = requests.get("https://jsonplaceholder.typicode.com/users/" +
@@ -11,10 +13,10 @@ if __name__ == "__main__":
     completed_task = total_tasks = 0
     for todo in user_todos:
         total_tasks += 1
-        if todo['completed'] is True:
+        if todo.get('completed') is True:
             completed_task += 1
     print("Employee {} is done with tasks ({}/{}):"
-          .format(user_info['name'], completed_task, total_tasks))
+          .format(user_info.get('name'), completed_task, total_tasks))
     for todo in user_todos:
-        if todo['completed'] is True:
-            print("\t {}".format(todo['title']))
+        if todo.get['completed'] is True:
+            print("\t {}".format(todo.get('title')))
