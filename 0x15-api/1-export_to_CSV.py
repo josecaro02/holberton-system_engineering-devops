@@ -20,9 +20,7 @@ if __name__ == "__main__":
         user_list.append(todo.get('title'))
         list_user.append(user_list.copy())
         user_list.clear()
-    csv_name = sys.argv[1] + '.csv'
+    csv_name = '{}.csv'.format(sys.argv[1])
     with open(csv_name, 'w') as csvfile:
-        writer = csv.writer(csvfile, delimiter=',',
-                            quotechar='"',
-                            quoting=csv.QUOTE_ALL)
+        writer = csv.writer(csvfile, quoting=csv.QUOTE_ALL)
         writer.writerows(list_user)
