@@ -15,8 +15,8 @@ if __name__ == "__main__":
         total_tasks += 1
         if todo.get('completed') is True:
             completed_task += 1
-    print("Employee {} is done with tasks ({}/{}):"
+    print("Employee {} is done with tasks({}/{}):"
           .format(user_info.get('name'), completed_task, total_tasks))
     for todo in user_todos:
-        if todo.get['completed'] is True:
+        if todo.get('completed') is True:
             print("\t {}".format(todo.get('title')))
