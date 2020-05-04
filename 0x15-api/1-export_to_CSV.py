@@ -13,7 +13,7 @@ if __name__ == "__main__":
     user_list = []
     for todo in user_todos:
         user_list.append(sys.argv[1])
-        user_list.append(user_info['name'])
+        user_list.append(user_info['username'])
         user_list.append(todo['completed'])
         user_list.append(todo['title'])
         list_user.append(user_list.copy())
