@@ -5,7 +5,6 @@ import requests
 import sys
 
 
-
 if __name__ == "__main__":
     user_info = requests.get("https://jsonplaceholder.typicode.com/users")\
                         .json()
