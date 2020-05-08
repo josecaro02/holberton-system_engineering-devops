@@ -9,8 +9,9 @@ import requests
 def number_of_subscribers(subreddit):
     subrd_info = requests.get("https://www.reddit.com/r/" +
                               subreddit + "/about.json",
-                              headers={'User-agent': 'yout bot 0.1'}).json()
-    subs = subrd_info.get('data').get('subscribers')
-    if (subs):
+                              headers={'User-agent': 'yout bot 0.1'},
+                              allow_redirects=False)
+    if (subrd_info.status_code == 200):
+        subs = subrd_info.json().get('data').get('subscribers')
         return(subs)
     return(0)
