@@ -6,10 +6,10 @@ return 0
 import requests
 
 
-def recurse(subreddit, hot_list=[], full_name = ""):
+def recurse(subreddit, hot_list=[], full_name=""):
     subrd_info = requests.get("https://www.reddit.com/r/" +
-                              subreddit + "/hot.json?after=" + full_name ,
-                              headers={'User-agent': 'yout bot 0.1'},
+                              subreddit + "/hot.json?&after=" + full_name,
+                              headers={'User-agent': 'Chrome'},
                               allow_redirects=False)
     if (subrd_info.status_code == 200):
         subs = subrd_info.json().get('data').get('children')
