@@ -13,11 +13,13 @@ def recurse(subreddit, hot_list=[], full_name=""):
                               allow_redirects=False)
     if (subrd_info.status_code == 200):
         subs = subrd_info.json().get('data').get('children')
-        if len(subs) != 0:
-            title = subs[0].get('data').get('title')
-            name = subs[0].get('data').get('name')
-            hot_list.append(title)
-            return recurse(subreddit, hot_list, name)
+        after = subrd_info.json().get('data').get('after')
+        if after:
+            for sub in subs:
+                title = sub.get('data').get('title')
+                name = sub.get('data').get('name')
+                hot_list.append(title)
+            return recurse(subreddit, hot_list, after)
         else:
             return(hot_list)
     return(None)
