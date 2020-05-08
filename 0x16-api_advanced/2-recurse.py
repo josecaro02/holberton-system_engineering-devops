@@ -7,7 +7,6 @@ import requests
 
 
 def recurse_pages(subreddit, hot_list, full_name):
-    print(full_name)
     subrd_info = requests.get("https://www.reddit.com/r/" +
                               subreddit + "/hot.json?after=" + full_name,
                               headers={'User-agent': 'yout bot 0.1'},
