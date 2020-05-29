@@ -1,7 +1,7 @@
 # Fix limit requests
 exec { 'Fix_limit':
   path     => ['/usr/bin', '/sbin', '/bin', '/usr/sbin'],
-  command  => 'sudo sed -i "s/UNLIMIT=.*/UNLIMIT=\"-n 200\"/"  /etc/default/nginx',
+  command  => 'sudo sed -i "s/UNLIMIT=.*/UNLIMIT=\"-n 2000\"/"  /etc/default/nginx',
   provider => 'shell',
   returns  => [0,1],
 }
