@@ -10,7 +10,7 @@ exec { 'Fix_limit':
 exec { 'Restart_nginx':
   require  => Exec['Fix_limit'],
   path     => ['/usr/bin', '/sbin', '/bin', '/usr/sbin'],
-  command  => 'sudo service nginx restart,
+  command  => 'sudo service nginx restart',
   provider => 'shell',
   returns  => [0,1],
 }
